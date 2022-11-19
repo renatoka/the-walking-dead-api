@@ -12,6 +12,6 @@ const characterSchema = new mongoose.Schema({
     DeathEpisode : {type: String, required: false},
     Status : {type: String, required: true},
     Ethnicity : {type: String, required: false}
-});
+}, {versionKey: false});
 
 module.exports = mongoose.model('Character', characterSchema);
