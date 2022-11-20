@@ -7,7 +7,7 @@ export const Characters = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/characters/random?limit=10")
+    fetch("https://the-walking-dead-api.onrender.com/api/characters/random?limit=10")
       .then((response) => response.json())
       .then((data) => {
         setCharacters(data);
@@ -59,7 +59,7 @@ export const Characters = () => {
             ))}
             <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
               <p className="mt-3 text-xl underline">
-                <a href="http://localhost:5000/api/characters" target={'_blank'}>
+                <a href="https://the-walking-dead-api.onrender.com/api/characters" target={'_blank'}>
                     View all characters
                 </a>
               </p>
