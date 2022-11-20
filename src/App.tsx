@@ -1,7 +1,14 @@
+import Main from './components/Main';
+import {Characters} from './components/Characters';
+import {Routes, Route} from "react-router-dom";
+
 function App() {
   return (
     <div className="App">
-      <h1>My App</h1>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path='/characters' element={<Characters />} />
+      </Routes>
     </div>
   );
 }
