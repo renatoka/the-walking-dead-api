@@ -8,7 +8,6 @@ const PORT = process.env.PORT || 5000
 const app = express();
 
 app.use(express.json())
-app.use(express.static(path.join(__dirname, '/dist')))
 app.use(cors())
 
 
@@ -17,4 +16,5 @@ mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopolo
     .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
     .catch((error) => console.log(error.message));
 
+app.use('/' , express.static(path.join(__dirname, '/dist')))
 app.use('/api', characterRouter)
