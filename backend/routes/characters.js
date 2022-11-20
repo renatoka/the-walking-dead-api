@@ -10,7 +10,7 @@ router.get("/characters", async (req, res) => {
       Name: new RegExp(name, "i"),
       Status: new RegExp(status, "i"),
       Gender: new RegExp(gender, "i"),
-      id : id ? id : {$exists: true}
+      id: id ? id : { $exists: true },
     }).limit(parseInt(limit));
     if (!characters)
       return res.status(404).send("No characters found. Try again later.");
