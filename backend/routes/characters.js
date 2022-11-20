@@ -4,14 +4,16 @@ const Character = require("../models/character");
 
 // Get all characters with optional query parameters
 router.get("/characters", async (req, res) => {
-  const { name, status, gender, limit } = req.query;
-  if (name || status || gender || limit) {
+  const { name, status, gender, limit, id } = req.query;
+  if (name || status || gender || limit || id) {
     const characters = await Character.find({
       Name: new RegExp(name, "i"),
       Status: new RegExp(status, "i"),
       Gender: new RegExp(gender, "i"),
+      id : id ? id : {$exists: true}
     }).limit(parseInt(limit));
-    if (!characters) return res.status(404).send("No characters found");
+    if (!characters)
+      return res.status(404).send("No characters found. Try again later.");
     res.send(characters);
   } else {
     const characters = await Character.find();
