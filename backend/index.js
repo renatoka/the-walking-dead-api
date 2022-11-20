@@ -9,6 +9,9 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 
+app.use(express.static(__dirname + '/dist'));
+
+
 mongoose.connect(dotenv.config().parsed.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
