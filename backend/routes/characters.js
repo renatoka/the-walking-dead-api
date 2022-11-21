@@ -3,7 +3,7 @@ const router = express.Router();
 const Character = require("../models/character");
 
 // Get all characters with optional query parameters
-router.get("/characters", async (req, res) => {
+router.get("/", async (req, res) => {
   const { name, status, gender, limit, id } = req.query;
   if (name || status || gender || limit || id) {
     const characters = await Character.find({
@@ -22,7 +22,7 @@ router.get("/characters", async (req, res) => {
 });
 
 // Get random character with or without a specific limit
-router.get("/characters/random", async (req, res) => {
+router.get("/random", async (req, res) => {
   const limit = req.query.limit;
   try {
     if (limit) {
