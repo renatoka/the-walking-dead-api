@@ -23,21 +23,24 @@ router.get("/", async (req, res) => {
 
 // Get random character with or without a specific limit
 router.get("/random", async (req, res) => {
-  const limit = req.query.limit;
+  const { status, gender, limit } = req.query;
   try {
-    if (limit) {
+    if (status || gender || limit) {
       const characters = await Character.aggregate([
+        { $match: { Status: new RegExp(status, "i") } },
+        { $match: { Gender: new RegExp(gender, "i") } },
         { $sample: { size: parseInt(limit) } },
       ]);
-      if (!characters) throw Error("No characters found. Try again later.");
-      res.status(200).json(characters);
+      if (!characters) return res.status(404).send("No characters found.");
+      res.send(characters);
     } else {
-      const characters = await Character.aggregate([{ $sample: { size: 1 } }]);
-      if (!characters) throw Error("No characters found. Try again later.");
-      res.status(200).json(characters);
+      const characters = await Character.aggregate([
+        { $sample: { size: 1 } },
+      ]);
+      res.send(characters);
     }
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  } catch (err) {
+    if (err) return res.status(404).send("No characters found.");
   }
 });
 
