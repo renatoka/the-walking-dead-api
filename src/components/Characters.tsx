@@ -29,12 +29,12 @@ export const Characters = () => {
       </div>
       <div className="items-center justify-end flex-grow hidden basis-0 md:flex gap-3">
         <div>
-          <a href="https://github.com/renatoka/better-call-saul-api" target="_blank" rel="noreferrer">
+          <a href="https://github.com/renatoka/the-walking-dead-api" target="_blank" rel="noreferrer">
             <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github Repository"
               className="w-8 h-8 rounded-full" />
           </a>
         </div>
-        <a href="https://better-call-saul-api.onrender.com/characters"
+        <a href="https://the-walking-dead-api.onrender.com/api/characters"
           className="px-4 py-2 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
           Go Explore API
         </a>
@@ -191,6 +191,28 @@ export const Characters = () => {
                 </p>
               </div>
             </div>
+          </div>
+          <div className="mt-8 flex flex-col flex-wrap">
+            <h1 className="text-3xl font-semibold tracking-tight text-slate-900 underline">
+              Example Characters
+            </h1>
+            {
+              characters.map((character, index) => (
+                <div className="p-6 mt-6 bg-white rounded-lg shadow-md" key={index}>
+                  <div className="flex items-center">
+                    <div className="flex-shrink-0">
+                      <img className="object-cover w-32 h-32 rounded-full" src={(character.Image).split('/revision')[0]} alt="avatar" />
+                    </div>
+                    <div className="mx-4">
+                      <h2 className="text-xl font-semibold text-gray-800">Name: {character.Name}</h2>
+                      <p className="text-sm text-gray-600">Gender: {character.Gender}</p>
+                      <p className="text-sm text-gray-600">Status: {character.Status}</p>
+                      <p className="text-sm text-gray-600">Hair Color: {character.Hair}</p>
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
           </div>
         </article>
       </div>
