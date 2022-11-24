@@ -112,7 +112,7 @@ with open('char_information.json', 'w') as outfile:
     json.dump(char_information, outfile) """
 
 
-URL = 'https://quotecatalog.com/quotes/tv/the-walking-dead/page/4'
+URL = 'https://quotecatalog.com/quotes/tv/the-walking-dead'
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
 
@@ -120,7 +120,10 @@ quotes = soup.find_all('div', {'class': 'mb-4 card'})
 
 qoute_information = []
 
+id = 78
+
 for quote in quotes:
+
     quote_text = quote.find('a', {'class': 'block p-5 font-serif md:text-lg quoteCard__blockquote'})
     qoute_author = quote.find('a', {'class': 'font-bold text-black hover:underline'})
     qoute_collection = quote.find('span', {'class': 'text-gray-500 italic'})
@@ -129,11 +132,14 @@ for quote in quotes:
     episode = quote.select_one('a:nth-child(3)')
 
     data = {
+        'id': id,
         'quote': quote_text.text.replace("\n\t\u201c", "").replace("\u201d\n", ""),
         'author': qoute_author.text,
         'season': season.replace('Season ', ''),
         'episode': episode.text
     }
+
+    id+=1
 
     qoute_information.append(data)
 
