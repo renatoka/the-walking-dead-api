@@ -1,9 +1,10 @@
 const express = require('express');
-const mongoose = require('mongoose')
-const dotenv = require('dotenv').config()
-const cors = require('cors')
+const mongoose = require('mongoose');
+const dotenv = require('dotenv').config();
+const cors = require('cors');
 const path = require('path');
-const characterRouter = require('./routes/characters')
+const characterRouter = require('./routes/characters');
+const quoteRouter = require('./routes/quotes');
 const PORT = process.env.PORT || 5000
 const axios = require('axios');
 const app = express();
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopolo
     .catch((error) => console.log(error.message));
 
 app.use('/api/characters', characterRouter)
+app.use('/api/quotes', quoteRouter)
 
 setInterval(() => {
     axios.get('https://the-walking-dead-api.onrender.com/api/characters')
