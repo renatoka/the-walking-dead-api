@@ -26,6 +26,7 @@ router.get("/", async (req, res) => {
   }
 })
 
+// Get random quote with optional parameters
 router.get("/random", async (req, res) => {
   try {
     const { limit }  = req.query
