@@ -62,8 +62,9 @@ from bs4 import BeautifulSoup
 # with open('char_information.json', 'w') as outfile:
 #     json.dump(char_information, outfile)
 
+""" Scraped every character into char_information.json """
 
-with open('char_urls.json', 'r') as f:
+""" with open('char_urls.json', 'r') as f:
     data = json.load(f)
     char_information = []
     start = time.time()
@@ -108,4 +109,33 @@ end = time.time()
 print("Scraped all characters and that took " + str(end - start) + " seconds")
 
 with open('char_information.json', 'w') as outfile:
-    json.dump(char_information, outfile)
+    json.dump(char_information, outfile) """
+
+
+URL = 'https://quotecatalog.com/quotes/tv/the-walking-dead/page/4'
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, 'html.parser')
+
+quotes = soup.find_all('div', {'class': 'mb-4 card'})
+
+qoute_information = []
+
+for quote in quotes:
+    quote_text = quote.find('a', {'class': 'block p-5 font-serif md:text-lg quoteCard__blockquote'})
+    qoute_author = quote.find('a', {'class': 'font-bold text-black hover:underline'})
+    qoute_collection = quote.find('span', {'class': 'text-gray-500 italic'})
+
+    season = qoute_collection.select('a')[1].text
+    episode = quote.select_one('a:nth-child(3)')
+
+    data = {
+        'quote': quote_text.text.replace("\n\t\u201c", "").replace("\u201d\n", ""),
+        'author': qoute_author.text,
+        'season': season.replace('Season ', ''),
+        'episode': episode.text
+    }
+
+    qoute_information.append(data)
+
+with open('quotes.json', 'a') as outfile:
+    json.dump(qoute_information, outfile)
