@@ -26,6 +26,26 @@ router.get("/", async (req, res) => {
   }
 })
 
+router.get("/random", async (req, res) => {
+  try {
+    const { limit }  = req.query
+    if (limit) {
+      const quotes = await Quote.aggregate([
+        {$sample : {size: parseInt(limit)}}
+      ]);
+      if (!quotes) return res.status(404).send("No quotes found.")
+      res.send(quotes)
+    } else {
+      const quotes = await Quote.aggregate([
+        {$sample: {size: 1}}
+      ])
+      res.send(quotes)
+    }
+  } catch(error) {
+    if (error) return res.status(404).send("No quotes found.")
+  }
+})
+
 // Used to post many quotes at once
 router.post("/", async (req, res) => {
   try {
