@@ -5,7 +5,7 @@ export const Quotes = () => {
   const [quotes, setQuotes] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch("https://the-walking-dead-api.onrender.com/api/quotes/random?limit=10")
+    fetch("https://thewalkingdead-api.onrender.com/api/quotes/random?limit=10")
       .then((response) => response.json())
       .then((data) => {
         setQuotes(data);
@@ -30,7 +30,7 @@ export const Quotes = () => {
               className="w-8 h-8 rounded-full" />
           </a>
         </div>
-        <a href="https://the-walking-dead-api.onrender.com/api/characters"
+        <a href="https://thewalkingdead-api.onrender.com/api/quotes"
           className="px-4 py-2 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
           Go Explore API
         </a>
@@ -97,7 +97,7 @@ export const Quotes = () => {
                 Endpoints
               </h3>
               <p className="mt-2 text-lg text-slate-600">
-                <code className=""><a href="https://the-walking-dead-api.onrender.com/api/quotes">https://the-walking-dead-api.onrender.com/api/quotes</a></code>
+                <code className=""><a href="https://thewalkingdead-api.onrender.com/api/quotes">https://thewalkingdead-api.onrender.com/api/quotes</a></code>
               </p>
             </div>
             <div className="mt-4">
@@ -132,8 +132,8 @@ export const Quotes = () => {
                   Examples
                 </h3>
                 <p className="mt-2 text-lg text-slate-600">
-                  <code className="text-slate-900">https://the-walking-dead-api.onrender.com/api/quotes?limit=10</code> - Return 10 quotes. <br />
-                  <code className="text-slate-900">https://the-walking-dead-api.onrender.com/api/quotes?author=Rick Grimes</code> - Return all quotes said by Rick Grimes <br />
+                  <code className="text-slate-900">https://thewalkingdead-api.onrender.com/api/quotes?limit=10</code> - Return 10 quotes. <br />
+                  <code className="text-slate-900">https://thewalkingdead-api.onrender.com/api/quotes?author=Rick Grimes</code> - Return all quotes said by Rick Grimes <br />
                 </p>
               </div>
             </div>
@@ -150,7 +150,7 @@ export const Quotes = () => {
                 Endpoints
               </h3>
               <p className="mt-2 text-lg text-slate-600">
-                <code className=""><a href="https://the-walking-dead-api.onrender.com/api/quotes/random">https://the-walking-dead-api.onrender.com/api/quotes/random</a></code>
+                <code className=""><a href="https://thewalkingdead-api.onrender.com/api/quotes/random">https://thewalkingdead-api.onrender.com/api/quotes/random</a></code>
               </p>
             </div>
             <div className="mt-4">
@@ -174,7 +174,7 @@ export const Quotes = () => {
                   Examples
                 </h3>
                 <p className="mt-2 text-lg text-slate-600">
-                  <code className="text-slate-900">https://the-walking-dead-api.onrender.com/api/quotes/random?limit=10</code> - Return 10 random quotes. <br />
+                  <code className="text-slate-900">https://thewalkingdead-api.onrender.com/api/quotes/random?limit=10</code> - Return 10 random quotes. <br />
                 </p>
               </div>
             </div>
