@@ -34,7 +34,7 @@ export const Characters = () => {
               className="w-8 h-8 rounded-full" />
           </a>
         </div>
-        <a href="https://the-walking-dead-api.onrender.com/api/characters"
+        <a href="https://thewalkingdead-api.onrender.com/api/characters"
           className="px-4 py-2 text-sm font-semibold rounded bg-slate-900 text-slate-50 transition ease-in-out delay-75 hover:scale-105 duration-200">
           Go Explore API
         </a>
