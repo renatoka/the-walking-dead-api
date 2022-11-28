@@ -20,8 +20,3 @@ mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopolo
 
 app.use('/api/characters', characterRouter)
 app.use('/api/quotes', quoteRouter)
-
-setInterval(() => {
-    axios.get('https://the-walking-dead-api.onrender.com/api/characters')
-    console.log('Pinged to stay alive')
-}, 780000);
