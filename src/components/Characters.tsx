@@ -7,7 +7,7 @@ export const Characters = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://the-walking-dead-api.onrender.com/api/characters/random?limit=10")
+    fetch("https://thewalkingdead-api.onrender.com/api/characters/random?limit=10")
       .then((response) => response.json())
       .then((data) => {
         setCharacters(data);
@@ -101,7 +101,7 @@ export const Characters = () => {
                 Endpoints
               </h3>
               <p className="mt-2 text-lg text-slate-600">
-                <code className=""><a href="https://the-walking-dead-api.onrender.com/api/characters">https://the-walking-dead-api.onrender.com/api/characters</a></code>
+                <code className=""><a href="https://thewalkingdead-api.onrender.com/api/characters">https://thewalkingdead-api.onrender.com/api/characters</a></code>
               </p>
             </div>
             <div className="mt-4">
@@ -140,9 +140,9 @@ export const Characters = () => {
                   Examples
                 </h3>
                 <p className="mt-2 text-lg text-slate-600">
-                  <code className="text-slate-900">https://the-walking-dead-api.onrender.com/api/characters?limit=10</code> - Return 10 characters. <br />
-                  <code className="text-slate-900">https://the-walking-dead-api.onrender.com/api/characters?name=Grimes&status=Alive</code> - Return all characters that contains word Grimes and which are still alive. <br />
-                  <code className="text-slate-900">https://the-walking-dead-api.onrender.com/api/characters?status=Alive</code> - Return all characters that are alive. <br />
+                  <code className="text-slate-900">https://thewalkingdead-api.onrender.com/api/characters?limit=10</code> - Return 10 characters. <br />
+                  <code className="text-slate-900">https://thewalkingdead-api.onrender.com/api/characters?name=Grimes&status=Alive</code> - Return all characters that contains word Grimes and which are still alive. <br />
+                  <code className="text-slate-900">https://thewalkingdead-api.onrender.com/api/characters?status=Alive</code> - Return all characters that are alive. <br />
                 </p>
               </div>
             </div>
@@ -159,7 +159,7 @@ export const Characters = () => {
                 Endpoints
               </h3>
               <p className="mt-2 text-lg text-slate-600">
-                <code className=""><a href="https://the-walking-dead-api.onrender.com/api/characters/random">https://the-walking-dead-api.onrender.com/api/characters/random</a></code>
+                <code className=""><a href="https://thewalkingdead-api.onrender.com/api/characters/random">https://thewalkingdead-api.onrender.com/api/characters/random</a></code>
               </p>
             </div>
             <div className="mt-4">
@@ -185,9 +185,9 @@ export const Characters = () => {
                   Examples
                 </h3>
                 <p className="mt-2 text-lg text-slate-600">
-                  <code className="text-slate-900">https://the-walking-dead-api.onrender.com/api/characters/random?limit=10</code> - Return 10 random characters. <br />
-                  <code className="text-slate-900">https://the-walking-dead-api.onrender.com/api/characters/random?gender=male&limit=2</code> - Return 2 random male characters<br />
-                  <code className="text-slate-900">https://the-walking-dead-api.onrender.com/api/characters/random?gender=male&status=alive&limit=2</code> - Return 2 random male characters that are alive<br />
+                  <code className="text-slate-900">https://thewalkingdead-api.onrender.com/api/characters/random?limit=10</code> - Return 10 random characters. <br />
+                  <code className="text-slate-900">https://thewalkingdead-api.onrender.com/api/characters/random?gender=male&limit=2</code> - Return 2 random male characters<br />
+                  <code className="text-slate-900">https://thewalkingdead-api.onrender.com/api/characters/random?gender=male&status=alive&limit=2</code> - Return 2 random male characters that are alive<br />
                 </p>
               </div>
             </div>
